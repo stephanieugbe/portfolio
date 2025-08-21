@@ -372,15 +372,16 @@ section {
 }
 
 .tool-item {
-  background: linear-gradient(135deg, #ec4899, #f472b6);
-  color: white;
-  padding: 2rem;
-  border-radius: 18px;
+  /* background: linear-gradient(135deg, #ec4899, #f472b6); */
+  /* color: white; */
+  /* padding: 2rem; */
+  /* border-radius: 18px;
   text-align: center;
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2);
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2); */
+  
 }
 
 .tool-item:hover {
