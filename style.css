@@ -171,6 +171,7 @@ section {
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
+  object-position: center;
 }
 
 .skill-icon {
@@ -248,7 +249,9 @@ section {
   width: 100%;
   height: 350px;
   overflow: hidden;
+  object-position: center;
 }
+
 
 .work-screenshot {
   width: 100%;
@@ -387,6 +390,7 @@ section {
   transition: all 0.3s ease;
   box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2);
 }
+
 
 .tool-item:hover {
   transform: translateY(-5px);
