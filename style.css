@@ -13,6 +13,7 @@ body {
   background: #fdf2f8;
   color: #333;
   line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Add subtle backdrop filter effects for modern look */
@@ -30,11 +31,12 @@ html {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%; /* Ensure full width usage */
 }
 
 /* Header/Hero Section */
 header {
-  min-height: 60vh;
+  min-height: 100vh; /* Changed from 60vh to 100vh for better mobile experience */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,6 +45,7 @@ header {
   color: white;
   position: relative;
   overflow: hidden;
+  padding: 2rem 1rem; /* Add padding for mobile safety */
 }
 
 header::before {
@@ -67,39 +70,44 @@ header::before {
   z-index: 1;
   max-width: 900px;
   padding: 0 20px;
+  width: 100%; /* Ensure full width */
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 8vw, 3rem); /* Responsive font size */
   font-weight: 700;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   font-family: 'Poppins', sans-serif;
+  line-height: 1.2; /* Better line height for mobile */
 }
 
 .hero-content .subtitle {
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 4vw, 1.3rem); /* Responsive font size */
   font-weight: 500;
   margin-bottom: 1rem;
   opacity: 0.95;
+  line-height: 1.4;
 }
 
 .hero-content .tagline {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 3vw, 1.1rem); /* Responsive font size */
   margin-bottom: 2.5rem;
   opacity: 0.85;
   font-weight: 300;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.5;
 }
 
 /* Social Links */
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem; /* Reduced gap for mobile */
   margin-bottom: 2.5rem;
+  flex-wrap: wrap; /* Allow wrapping on very small screens */
 }
 
 .social-link {
@@ -115,6 +123,7 @@ header::before {
   font-size: 1.2rem;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .social-link:hover {
@@ -131,9 +140,11 @@ header::before {
   text-decoration: none;
   border-radius: 30px;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 3vw, 1.1rem); /* Responsive font size */
   transition: all 0.3s ease;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  min-width: 200px; /* Minimum width for mobile */
+  text-align: center;
 }
 
 .cta-button:hover {
@@ -143,7 +154,7 @@ header::before {
 
 /* Sections */
 section {
-  padding: 5rem 0;
+  padding: 3rem 0; /* Reduced padding for mobile */
 }
 
 .section-header {
@@ -152,7 +163,7 @@ section {
 }
 
 .section-header h2 {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 6vw, 2.2rem); /* Responsive font size */
   color: #ec4899;
   margin-bottom: 0.5rem;
   font-weight: 600;
@@ -162,7 +173,7 @@ section {
 .skills-grid {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem; /* Reduced gap for mobile */
   max-width: 800px;
   margin: 0 auto;
 }
@@ -170,7 +181,7 @@ section {
 .skill-card {
   background: white;
   border-radius: 25px;
-  padding: 3rem;
+  padding: 2rem; /* Reduced padding for mobile */
   text-align: center;
   box-shadow: 0 12px 35px rgba(236, 72, 153, 0.12);
   transition: all 0.3s ease;
@@ -201,15 +212,15 @@ section {
 }
 
 .skill-icon {
-  width: 90px;
-  height: 90px;
+  width: 70px; /* Reduced size for mobile */
+  height: 70px;
   background: linear-gradient(135deg, #ec4899, #f472b6);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 2rem;
-  font-size: 2.2rem;
+  font-size: 1.8rem; /* Reduced size for mobile */
   color: white;
   transition: transform 0.3s ease;
   box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
@@ -220,15 +231,16 @@ section {
 }
 
 .skill-card h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem); /* Responsive font size */
   color: #333;
   margin-bottom: 1rem;
   font-weight: 600;
+  line-height: 1.3;
 }
 
 .skill-card p {
   color: #666;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
   line-height: 1.5;
 }
 
@@ -236,15 +248,15 @@ section {
 .work-grid {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
   max-width: 800px;
   margin: 0 auto;
 }
 
 .work-card {
-   background: white;
+  background: white;
   border-radius: 25px;
-  padding: 3rem;
+  padding: 2rem; /* Reduced padding for mobile */
   text-align: center;
   box-shadow: 0 12px 35px rgba(236, 72, 153, 0.12);
   transition: all 0.3s ease;
@@ -259,11 +271,11 @@ section {
 
 .work-image-container {
   width: 100%;
-  height: 350px;
+  height: 250px; /* Reduced height for mobile */
   overflow: hidden;
   object-position: center;
-    border-radius: 25px;
-
+  border-radius: 25px;
+  margin-bottom: 1.5rem;
 }
 
 .work-screenshot {
@@ -278,20 +290,28 @@ section {
 }
 
 .work-info {
-  padding: 2.5rem;
+  padding: 1.5rem; /* Reduced padding for mobile */
   text-align: center;
 }
 
 .work-info h4 {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem); /* Responsive font size */
   color: #333;
   margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.work-info h5 {
+  font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
+  color: #ec4899;
+  margin-bottom: 0.8rem;
   font-weight: 600;
 }
 
 .work-info p {
   color: #666;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 3vw, 1rem); /* Responsive font size */
   line-height: 1.6;
   margin-bottom: 1.5rem;
   max-width: 600px;
@@ -304,19 +324,21 @@ section {
   flex-wrap: wrap;
   gap: 0.6rem;
   justify-content: center;
+  margin-top: 1rem;
 }
 
 /* Horizontal scroll for social media images */
 .horizontal-scroll {
   display: flex;
-  gap: 2rem;
+  gap: 1rem; /* Reduced gap for mobile */
   overflow-x: auto;
   white-space: nowrap;
   padding: 1rem 0.3rem;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin; 
-  min-height: 300px;
+  min-height: 200px; /* Reduced height for mobile */
   margin-top: 2rem;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .horizontal-scroll::-webkit-scrollbar {
@@ -329,8 +351,9 @@ section {
 }
 
 .horizontal-scroll img {
-  height: 300px;
+  height: 200px; /* Reduced height for mobile */
   width: auto;
+  min-width: 150px; /* Minimum width for mobile */
   border-radius: 15px;
   display: inline-block;
   scroll-snap-align: start;
@@ -341,52 +364,55 @@ section {
 }
 
 .horizontal-scroll img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05); /* Reduced scale for mobile */
   z-index: 10;
 }
 
 .tool-tag {
   background: rgba(236, 72, 153, 0.1);
   color: #ec4899;
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 0.8rem; /* Slightly reduced padding */
   border-radius: 15px;
-  font-size: 0.8rem;
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem); /* Responsive font size */
   font-weight: 500;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 /* Tools Section */
 .tools-container {
   background: white;
   border-radius: 20px;
-  padding: 3rem;
+  padding: 2rem; /* Reduced padding for mobile */
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   border: 1px solid rgba(0,0,0,0.05);
 }
 
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Reduced min-width for mobile */
+  gap: 1rem; /* Reduced gap for mobile */
   max-width: 600px;
   margin: 0 auto;
 }
 
 .tool-item {
-  /* background: linear-gradient(135deg, #ec4899, #f472b6); */
-  /* color: white; */
-  /* padding: 2rem; */
-  /* border-radius: 18px;
+  background: transparent;
+  color: #333;
+  padding: 1.5rem 1rem; /* Adjusted padding for mobile */
+  border-radius: 18px;
   text-align: center;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 3vw, 1.1rem); /* Responsive font size */
   transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2); */
-  
+  min-height: 60px; /* Consistent height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tool-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(236, 72, 153, 0.3);
+  color: #ec4899;
 }
 
 /* Footer */
@@ -394,7 +420,7 @@ footer {
   background: linear-gradient(135deg, #ec4899, #f472b6);
   color: white;
   text-align: center;
-  padding: 3rem 0;
+  padding: 2rem 1rem; /* Reduced padding for mobile */
 }
 
 .footer-content {
@@ -405,13 +431,15 @@ footer {
 }
 
 .footer-content > p:first-child {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 3vw, 1.1rem); /* Responsive font size */
   font-weight: 500;
 }
 
 .footer-social {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: center;
 }
 
 .footer-social .social-link {
@@ -422,44 +450,127 @@ footer {
 }
 
 .footer-text {
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem); /* Responsive font size */
   opacity: 0.8;
   margin-top: 1rem;
 }
 
-/* Responsive Design */
+/* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
+  .container {
+    padding: 0 15px;
   }
   
-  .hero-content .subtitle {
-    font-size: 1.1rem;
+  header {
+    min-height: 100vh;
+    padding: 1rem;
   }
   
-  .skills-grid,
-  .work-grid {
-    grid-template-columns: 1fr;
+  .hero-content {
+    padding: 0 15px;
   }
   
   .social-links {
-    gap: 1rem;
+    gap: 0.8rem;
   }
   
-  .section-header h2 {
-    font-size: 1.8rem;
+  .social-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .cta-button {
+    padding: 14px 30px;
+    min-width: 180px;
+  }
+  
+  section {
+    padding: 2rem 0;
   }
   
   .skill-card,
-  .work-info {
+  .work-card {
     padding: 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .work-image-container {
+    height: 200px;
+    border-radius: 20px;
   }
   
   .tools-container {
-    padding: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.8rem;
+  }
+  
+  .tool-item {
+    padding: 1rem 0.5rem;
+    min-height: 50px;
+  }
+  
+  .horizontal-scroll {
+    gap: 0.8rem;
+    min-height: 180px;
   }
   
   .horizontal-scroll img {
-    height: 200px;
+    height: 180px;
+    min-width: 130px;
+  }
+  
+  .skill-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  .hero-content {
+    padding: 0 10px;
+  }
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .cta-button {
+    padding: 12px 25px;
+    min-width: 160px;
+  }
+  
+  .skill-card,
+  .work-card {
+    padding: 1rem;
+    margin: 0 5px;
+  }
+  
+  .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  
+  .horizontal-scroll img {
+    height: 160px;
+    min-width: 110px;
+  }
+  
+  .work-tools {
+    gap: 0.4rem;
+  }
+  
+  .tool-tag {
+    padding: 0.3rem 0.6rem;
   }
 }
