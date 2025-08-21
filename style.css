@@ -8,7 +8,6 @@
   box-sizing: border-box;
 }
 
-/* Modern enhancements */
 body {
   font-family: 'Poppins', sans-serif;
   background: #fdf2f8;
@@ -35,41 +34,71 @@ html {
 
 /* Header/Hero Section */
 header {
-  min-height: 50vh;
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   background: linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #fbb6ce 100%);
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+  z-index: 0;
+  animation: rotateBg 20s linear infinite;
+}
+
+@keyframes rotateBg {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  padding: 0 20px;
 }
 
 .hero-content h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  font-family: 'Poppins', sans-serif;
 }
 
 .hero-content .subtitle {
   font-size: 1.3rem;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 1rem;
   opacity: 0.95;
 }
 
 .hero-content .tagline {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: 2.5rem;
   opacity: 0.85;
   font-weight: 300;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Social Links */
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
   margin-bottom: 2.5rem;
 }
 
@@ -77,13 +106,13 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
-  background: rgba(255, 255, 255, 0.2);
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
 }
@@ -96,20 +125,20 @@ header {
 /* CTA Button */
 .cta-button {
   display: inline-block;
-  padding: 14px 30px;
+  padding: 16px 36px;
   background: white;
   color: #ec4899;
   text-decoration: none;
-  border-radius: 25px;
+  border-radius: 30px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 /* Sections */
@@ -127,10 +156,9 @@ section {
   color: #ec4899;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  align-items: center;
 }
 
-/* Skills Section - Stacked Layout */
+/* Skills Section */
 .skills-grid {
   display: flex;
   flex-direction: column;
@@ -142,13 +170,12 @@ section {
 .skill-card {
   background: white;
   border-radius: 25px;
-  padding: 3rem; /* bigger padding */
+  padding: 3rem;
   text-align: center;
   box-shadow: 0 12px 35px rgba(236, 72, 153, 0.12);
   transition: all 0.3s ease;
   border: 1px solid rgba(236, 72, 153, 0.15);
-  max-width: 100%; /* keep centered */
-  margin: 0 auto;   /* center in page */
+  width: 100%;
 }
 
 .skill-card:hover {
@@ -158,8 +185,7 @@ section {
 
 .skill-image {
   width: 100%;
-  /* max-width: 600px; */
-  height: 100%;
+  height: auto;
   margin: 0 auto 2rem;
   border-radius: 15px;
   overflow: hidden;
@@ -203,25 +229,10 @@ section {
 .skill-card p {
   color: #666;
   font-size: 1rem;
-  line-height: 1.;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.skill-card h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 0.8rem;
-  font-weight: 600;
-}
-
-.skill-card p {
-  color: #666;
-  font-size: 0.9rem;
   line-height: 1.5;
 }
 
-/* Work Section - Stacked Layout */
+/* Work Section */
 .work-grid {
   display: flex;
   flex-direction: column;
@@ -231,12 +242,13 @@ section {
 }
 
 .work-card {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1);
+   background: white;
+  border-radius: 25px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(236, 72, 153, 0.12);
   transition: all 0.3s ease;
-  border: 1px solid rgba(236, 72, 153, 0.1);
+  border: 1px solid rgba(236, 72, 153, 0.15);
   width: 100%;
 }
 
@@ -250,8 +262,9 @@ section {
   height: 350px;
   overflow: hidden;
   object-position: center;
-}
+    border-radius: 25px;
 
+}
 
 .work-screenshot {
   width: 100%;
@@ -284,7 +297,6 @@ section {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 1.5rem;
 }
 
 .work-tools {
@@ -294,37 +306,17 @@ section {
   justify-content: center;
 }
 
-.work-info h4 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 0.6rem;
-  font-weight: 600;
-}
-
-.work-info p {
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-.work-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
 /* Horizontal scroll for social media images */
 .horizontal-scroll {
   display: flex;
   gap: 2rem;
   overflow-x: auto;
-  white-space: nowrap; /* keeps items in one line */
+  white-space: nowrap;
   padding: 1rem 0.3rem;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin; 
   min-height: 300px;
-  margin-top: 2rem
+  margin-top: 2rem;
 }
 
 .horizontal-scroll::-webkit-scrollbar {
@@ -337,12 +329,12 @@ section {
 }
 
 .horizontal-scroll img {
-  height: 300px;          /* fix height */
-  width: auto;            /* keep natural width */
+  height: 300px;
+  width: auto;
   border-radius: 15px;
-  display: inline-block;  /* line up horizontally */
+  display: inline-block;
   scroll-snap-align: start;
-  object-fit: cover;      /* keeps proportions */
+  object-fit: cover;
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
   transition: transform 0.3s ease;
@@ -350,7 +342,7 @@ section {
 
 .horizontal-scroll img:hover {
   transform: scale(1.1);
-  z-index: 10;           /* ensures it appears above neighboring images */
+  z-index: 10;
 }
 
 .tool-tag {
@@ -362,7 +354,7 @@ section {
   font-weight: 500;
 }
 
-/* Tools Section - Simplified */
+/* Tools Section */
 .tools-container {
   background: white;
   border-radius: 20px;
@@ -373,7 +365,7 @@ section {
 
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
   max-width: 600px;
   margin: 0 auto;
@@ -382,15 +374,14 @@ section {
 .tool-item {
   background: linear-gradient(135deg, #ec4899, #f472b6);
   color: white;
-  padding: 2.5rem 2rem;
+  padding: 2rem;
   border-radius: 18px;
   text-align: center;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: all 0.3s ease;
   box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2);
 }
-
 
 .tool-item:hover {
   transform: translateY(-5px);
@@ -402,8 +393,7 @@ footer {
   background: linear-gradient(135deg, #ec4899, #f472b6);
   color: white;
   text-align: center;
-  padding: 2.5rem 0;
-  margin-top: 2rem;
+  padding: 3rem 0;
 }
 
 .footer-content {
@@ -433,6 +423,7 @@ footer {
 .footer-text {
   font-size: 0.9rem;
   opacity: 0.8;
+  margin-top: 1rem;
 }
 
 /* Responsive Design */
@@ -465,5 +456,9 @@ footer {
   
   .tools-container {
     padding: 2rem;
+  }
+  
+  .horizontal-scroll img {
+    height: 200px;
   }
 }
